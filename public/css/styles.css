@@ -1,0 +1,31 @@
+body {
+    background-color: lightgray;
+}
+
+/* navbar */
+.icon-navbar {
+    width: 25px;
+    height: auto;
+}
+
+.navbar {
+    border: black;
+    box-shadow: 0 10px 35px -2px #252525;
+    border-radius: 0 0 25px 25px;
+}
+
+/* Homepage */
+.homepage {
+    display: flex;
+    justify-content: center;
+}
+
+.homepage__img {
+    width: 50%;
+    border-radius: 5%;
+    box-shadow: 5px 5px 30px 5px #000000;
+}
+
+h1 {
+    color: blue;
+}

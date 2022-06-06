@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Carnet de pêche{% endblock %}
+
+{% block body %}
+
+{{ include('_navbar.html.twig') }}
+   <h1 class="text-center mt-3">Bienvenue dans mon carnet de pêche</h1>
+   <div class="container homepage">
+       <img class="homepage__img mt-5" src="{{ asset('/img/TomAccueilV2.png') }}" alt="Deux jeunes pêcheurs avec une carpe commune">
+   </div>
+{% endblock %}
