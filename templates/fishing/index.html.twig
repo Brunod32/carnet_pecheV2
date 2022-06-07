@@ -30,8 +30,8 @@
                 <td>{{ fishing.weather }}</td>
                 <td>{{ fishing.bait }}</td>
                 <td>
-                    <a href="{{ path('app_fishing_show', {'id': fishing.id}) }}">Voir</a>
-                    <a href="{{ path('app_fishing_edit', {'id': fishing.id}) }}">Modifier</a>
+                    <a href="{{ path('app_fishing_show', {'id': fishing.id}) }}" title="Voir"><i class="fa-solid fa-folder-open"></i></a>
+                    <a href="{{ path('app_fishing_edit', {'id': fishing.id}) }}" title="Modifier"><i class="fa-solid fa-pen"></i></a>
                 </td>
             </tr>
         {% else %}
