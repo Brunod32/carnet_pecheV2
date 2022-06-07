@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier une pêche{% endblock %}
+
+{% block body %}
+    <h1>Modifier une pêche</h1>
+
+    {{ include('fishing/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+    <a href="{{ path('app_fishing_index') }}">Retour à la liste</a>
+
+    {{ include('fishing/_delete_form.html.twig') }}
+{% endblock %}

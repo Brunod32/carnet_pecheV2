@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des pêches{% endblock %}
+
+{% block body %}
+{{ include('_navbar.html.twig') }}
+    <h1>Listes des pêches</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Variété de poisson</th>
+                <th>Date</th>
+                <th>Lieu</th>
+                <th>Leurre</th>
+                <th>Météo</th>
+                <th>Appât</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for fishing in fishings %}
+            <tr>
+                <td>{{ fishing.id }}</td>
+                <td>{{ fishing.fishRace }}</td>
+                <td>{{ fishing.date ? fishing.date|date('Y-m-d') : '' }}</td>
+                <td>{{ fishing.place }}</td>
+                <td>{{ fishing.lure }}</td>
+                <td>{{ fishing.weather }}</td>
+                <td>{{ fishing.bait }}</td>
+                <td>
+                    <a href="{{ path('app_fishing_show', {'id': fishing.id}) }}">Voir</a>
+                    <a href="{{ path('app_fishing_edit', {'id': fishing.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">Aucune pêche enregistrée</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_fishing_new') }}" class="btn btn-outline-primary">Enregistrer une nouvelle pêche</a>
+{% endblock %}

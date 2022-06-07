@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvelle pêche{% endblock %}
+
+{% block body %}
+    <h1>Créer une nouvelle pêche</h1>
+
+    {{ include('fishing/_form.html.twig') }}
+
+    <a href="{{ path('app_fishing_index') }}" class="btn btn-outline-success">Retour à la liste</a>
+{% endblock %}
