@@ -1,46 +1,48 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Fishing{% endblock %}
+{% block title %}Détails pêche{% endblock %}
 
 {% block body %}
-    <h1>Fishing</h1>
+    <h1 class="text-center m-5">Détails de la pêche {{ fishing.date|date('d M Y') }}</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ fishing.id }}</td>
-            </tr>
-            <tr>
-                <th>Variété de poisson</th>
-                <td>{{ fishing.fishRace }}</td>
-            </tr>
-            <tr>
-                <th>Date</th>
-                <td>{{ fishing.date ? fishing.date|date('Y-m-d') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Lieu</th>
-                <td>{{ fishing.place }}</td>
-            </tr>
-            <tr>
-                <th>Leurre</th>
-                <td>{{ fishing.lure }}</td>
-            </tr>
-            <tr>
-                <th>Météo</th>
-                <td>{{ fishing.weather }}</td>
-            </tr>
-            <tr>
-                <th>Appât</th>
-                <td>{{ fishing.bait }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="container">
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th>Id</th>
+                    <td>{{ fishing.id }}</td>
+                </tr>
+                <tr>
+                    <th>Variété de poisson</th>
+                    <td>{{ fishing.fishRace }}</td>
+                </tr>
+                <tr>
+                    <th>Date</th>
+                    <td>{{ fishing.date ? fishing.date|date('d-m-Y') : '' }}</td>
+                </tr>
+                <tr>
+                    <th>Lieu</th>
+                    <td>{{ fishing.place }}</td>
+                </tr>
+                <tr>
+                    <th>Leurre</th>
+                    <td>{{ fishing.lure }}</td>
+                </tr>
+                <tr>
+                    <th>Météo</th>
+                    <td>{{ fishing.weather }}</td>
+                </tr>
+                <tr>
+                    <th>Appât</th>
+                    <td>{{ fishing.bait }}</td>
+                </tr>
+            </tbody>
+        </table>
 
-    <a href="{{ path('app_fishing_index') }}" class="btn btn-outline-success">Retour à la liste</a>
+        <a href="{{ path('app_fishing_index') }}" class="btn btn-outline-success">Retour à la liste</a>
+        <br>
+        <a href="{{ path('app_fishing_edit', {'id': fishing.id}) }}" class="btn btn-outline-primary mt-2">Modifier</a>
 
-    <a href="{{ path('app_fishing_edit', {'id': fishing.id}) }}" class="btn btn-outline-primary">Modifier</a>
-
-    {{ include('fishing/_delete_form.html.twig') }}
+        {{ include('fishing/_delete_form.html.twig') }}
+    </div>
 {% endblock %}

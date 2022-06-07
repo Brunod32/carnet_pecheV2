@@ -3,11 +3,13 @@
 {% block title %}Modifier une pêche{% endblock %}
 
 {% block body %}
-    <h1>Modifier une pêche</h1>
+    <h1 class="text-center m-5">Modifier une pêche</h1>
 
     {{ include('fishing/_form.html.twig', {'button_label': 'Modifier'}) }}
 
-    <a href="{{ path('app_fishing_index') }}" class="btn btn-outline-success">Retour à la liste</a>
+    <div class="container">
+        <a href="{{ path('app_fishing_index') }}" class="btn btn-outline-success mt-2">Retour à la liste</a>
 
-    {{ include('fishing/_delete_form.html.twig') }}
+        {{ include('fishing/_delete_form.html.twig') }}
+    </div>
 {% endblock %}

@@ -3,9 +3,10 @@
 {% block title %}Nouvelle pêche{% endblock %}
 
 {% block body %}
-    <h1>Créer une nouvelle pêche</h1>
+    <h1 class="text-center m-5">Créer une nouvelle pêche</h1>
 
     {{ include('fishing/_form.html.twig') }}
-
-    <a href="{{ path('app_fishing_index') }}" class="btn btn-outline-success">Retour à la liste</a>
+    <div class="container">
+        <a href="{{ path('app_fishing_index') }}" class="btn btn-outline-success mt-2">Retour à la liste</a>
+    </div>
 {% endblock %}

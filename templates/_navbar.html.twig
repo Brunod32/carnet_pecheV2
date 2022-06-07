@@ -4,7 +4,7 @@
             <img class="icon-navbar" src="{{ asset('/img/breme.svg') }}" alt="Retour à l'accueil" title="Accueil">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+            <i class="fa-solid fa-bars"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -19,12 +19,17 @@
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto">
-                    {% if app.user %}
+                {% if not app.user %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('app_logout') }}" title="Déconnexion"><i class="fa-solid fa-arrow-right-from-bracket fa-2x"></i></i></a>
+                        <a class="nav-link" href="{{ path('app_login') }}" title="Connexion"><i class="fa-solid fa-arrow-right-to-bracket fa-2x"></i></a>
                     </li>
-                    {% endif %}
-                </ul>
+                {% endif %}
+                {% if app.user %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('app_logout') }}" title="Déconnexion"><i class="fa-solid fa-arrow-right-from-bracket fa-2x"></i></a>
+                </li>
+                {% endif %}
+            </ul>
         </div>
     </div>
 </nav>
