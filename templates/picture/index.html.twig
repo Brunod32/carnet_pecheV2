@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des photos{% endblock %}
+
+{% block body %}
+{{ include('_navbar.html.twig') }}
+    <h1 class="text-center m-5">Mes photos</h1>
+
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    {# <th>Id</th> #}
+                    <th>Title</th>
+                    <th>Place</th>
+                    <th>Date</th>
+                    <th>Description</th>
+                    <th>Photo</th>
+                    <th>actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for picture in pictures %}
+                <tr>
+                    {# <td>{{ picture.id }}</td> #}
+                    <td>{{ picture.title }}</td>
+                    <td>{{ picture.place }}</td>
+                    <td>{{ picture.date ? picture.date|date('Y-m-d') : '' }}</td>
+                    <td>{{ picture.description }}</td>
+                    <td>{{ picture.photo }}</td>
+                    <td>
+                        <a href="{{ path('app_picture_show', {'id': picture.id}) }}" title="Voir"><i class="fa-solid fa-folder-open"></i></a>
+                        <a href="{{ path('app_picture_edit', {'id': picture.id}) }}" title="Modifier"><i class="fa-solid fa-pen"></i></a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="7">Aucune photo enregistrée</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        
+        <a href="{{ path('app_picture_new') }}">Enregistrer une nouvelle photo</a>
+    </div>
+
+{% endblock %}

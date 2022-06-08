@@ -1,0 +1,12 @@
+<div class="container"> 
+    {{ form_start(form) }}
+        {{ form_row(form.title, { 'label': 'Titre de la photo'}) }}
+        {{ form_row(form.place, { 'label': 'Lieu'}) }}
+        {{ form_row(form.date, { 'label': 'Date'}) }}
+        {{ form_row(form.description, { 'label': 'Description'}) }}
+        {{ form_row(form.photo, { 'label': 'Photo'}) }}
+
+
+        <button class="btn btn-outline-primary">{{ button_label|default('Enregistrer') }}</button>
+    {{ form_end(form) }}
+</div>

@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier une photo{% endblock %}
+
+{% block body %}
+     <h1 class="text-center m-5">Modifier une photo</h1>
+
+    {{ include('picture/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+    <div class="container">
+        <a href="{{ path('app_picture_index') }}" class="btn btn-outline-success mt-2">Retour à la liste</a>
+        {{ include('picture/_delete_form.html.twig') }}
+    </div>
+{% endblock %}
