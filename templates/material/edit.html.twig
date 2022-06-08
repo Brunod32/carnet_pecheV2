@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier un matériel{% endblock %}
+
+{% block body %}
+    <h1 class="text-center m-5">Modifier un matériel</h1>
+
+    {{ include('material/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+    <div class=" container">
+        <a href="{{ path('app_material_index') }}" class="btn btn-outline-success mt-2">Retour à la liste</a>
+
+        {{ include('material/_delete_form.html.twig') }}
+    </div>
+{% endblock %}

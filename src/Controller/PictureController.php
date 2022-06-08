@@ -33,7 +33,7 @@ class PictureController extends AbstractController
 
             return $this->redirectToRoute('app_picture_index', [], Response::HTTP_SEE_OTHER);
         }
-
+     
         return $this->renderForm('picture/new.html.twig', [
             'picture' => $picture,
             'form' => $form,

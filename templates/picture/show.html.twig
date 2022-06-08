@@ -1,42 +1,44 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Picture{% endblock %}
+{% block title %}Détail photo{% endblock %}
 
 {% block body %}
-    <h1>Picture</h1>
+    <h1 class="text-center m-5">Détails de photo {{ picture.title }}</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ picture.id }}</td>
-            </tr>
-            <tr>
-                <th>Title</th>
-                <td>{{ picture.title }}</td>
-            </tr>
-            <tr>
-                <th>Place</th>
-                <td>{{ picture.place }}</td>
-            </tr>
-            <tr>
-                <th>Date</th>
-                <td>{{ picture.date ? picture.date|date('d-m-Y') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ picture.description }}</td>
-            </tr>
-            <tr>
-                <th>Photo</th>
-                <td>{{ picture.photo }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="container">
+        <table class="table">
+            <tbody>
+                {# <tr>
+                    <th>Id</th>
+                    <td>{{ picture.id }}</td>
+                </tr> #}
+                <tr>
+                    <th>Titre</th>
+                    <td>{{ picture.title }}</td>
+                </tr>
+                <tr>
+                    <th>Lieu</th>
+                    <td>{{ picture.place }}</td>
+                </tr>
+                <tr>
+                    <th>Date</th>
+                    <td>{{ picture.date ? picture.date|date('d-m-Y') : '' }}</td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td>{{ picture.description }}</td>
+                </tr>
+                <tr>
+                    <th>Photo</th>
+                    <td>{{ picture.photo }}</td>
+                </tr>
+            </tbody>
+        </table>
 
-    <a href="{{ path('app_picture_index') }}">back to list</a>
+        <a href="{{ path('app_picture_index') }}" class="btn btn-outline-success">Retour à la liste</a>
+        <br>
+        <a href="{{ path('app_picture_edit', {'id': picture.id}) }}" class="btn btn-outline-primary mt-2">Modifier</a>
 
-    <a href="{{ path('app_picture_edit', {'id': picture.id}) }}">edit</a>
-
-    {{ include('picture/_delete_form.html.twig') }}
+        {{ include('picture/_delete_form.html.twig') }}
+    </div>
 {% endblock %}
