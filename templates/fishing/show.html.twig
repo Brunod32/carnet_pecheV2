@@ -41,8 +41,10 @@
 
         <a href="{{ path('app_fishing_index') }}" class="btn btn-outline-success">Retour à la liste</a>
         <br>
-        <a href="{{ path('app_fishing_edit', {'id': fishing.id}) }}" class="btn btn-outline-primary mt-2">Modifier</a>
+        {% if app.user %}
+            <a href="{{ path('app_fishing_edit', {'id': fishing.id}) }}" class="btn btn-outline-primary mt-2">Modifier</a>
 
-        {{ include('fishing/_delete_form.html.twig') }}
+            {{ include('fishing/_delete_form.html.twig') }}
+        {% endif %}
     </div>
 {% endblock %}
