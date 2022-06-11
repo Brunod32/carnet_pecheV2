@@ -25,23 +25,6 @@ class PictureController extends AbstractController
     }
 
     #[Route('/new', name: 'app_picture_new', methods: ['GET', 'POST'])]
-    // public function new(Request $request, PictureRepository $pictureRepository): Response
-    // {
-    //     $picture = new Picture();
-    //     $form = $this->createForm(PictureType::class, $picture);
-    //     $form->handleRequest($request);
-
-    //     if ($form->isSubmitted() && $form->isValid()) {
-    //         $pictureRepository->add($picture, true);
-
-    //         return $this->redirectToRoute('app_picture_index', [], Response::HTTP_SEE_OTHER);
-    //     }
-     
-    //     return $this->renderForm('picture/new.html.twig', [
-    //         'picture' => $picture,
-    //         'form' => $form,
-    //     ]);
-    // }
     public function new(Request $request, PictureRepository $pictureRepository, SluggerInterface $slugger): Response
     {
         $picture = new Picture();
@@ -92,12 +75,36 @@ class PictureController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'app_picture_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Picture $picture, PictureRepository $pictureRepository, ): Response
+    public function edit(Request $request, Picture $picture, PictureRepository $pictureRepository, SluggerInterface $slugger): Response
     {
         $form = $this->createForm(PictureType::class, $picture);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            /** @var UploadedFile $photo */
+            $photo = $form->get('photo')->getData();
+            
+            // this condition is needed because the 'photo' field is not required
+            // so the file must be processed only when a file is uploaded
+            if ($photo) {
+                // $originalFilename = pathinfo($photo->getClientOriginalName(), PATHINFO_FILENAME);
+                // // this is needed to safely include the file name as part of the URL
+                // $safeFilename = $slugger->slug($originalFilename);
+                $newFilename = $picture->getPhoto();
+                
+                // Move the file to the directory where photos are stored
+                try {
+                    $photo->move(
+                        $this->getParameter('photos_directory'),
+                        $newFilename
+                    );
+                } catch (FileException $e) {
+                    $this->addFlash('error', $e->getMessage());
+                }
+ 
+                // updates the 'photoname' property to store the PDF file name
+                $picture->setPhoto($newFilename);
+            }
             $pictureRepository->add($picture, true);
 
             return $this->redirectToRoute('app_picture_index', [], Response::HTTP_SEE_OTHER);
@@ -112,7 +119,7 @@ class PictureController extends AbstractController
     #[Route('/{id}', name: 'app_picture_delete', methods: ['POST'])]
     public function delete(Request $request, Picture $picture, PictureRepository $pictureRepository): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$picture->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete'.$picture->getId(), $request->request->get('_token'))) {;
             $pictureRepository->remove($picture, true);
         }
 
