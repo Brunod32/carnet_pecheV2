@@ -25,7 +25,7 @@ class Picture
     #[ORM\Column(type: 'text', nullable: true)]
     private $description;
 
-    #[ORM\Column(type: 'blob')]
+    #[ORM\Column(type: 'string', length: 255)]
     private $photo;
 
     public function getId(): ?int

@@ -30,7 +30,9 @@
                 </tr>
                 <tr>
                     <th>Photo</th>
-                    <td>{{ picture.photo }}</td>
+                    <td><img
+                        src="{{ asset('uploads/' ~ picture.photo) }}" />
+                    </td>
                 </tr>
             </tbody>
         </table>
