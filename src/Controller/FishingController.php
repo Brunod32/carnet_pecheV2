@@ -21,6 +21,38 @@ class FishingController extends AbstractController
         ]);
     }
 
+
+
+
+    #[Route('/fishing-search/{id}', name: 'fishing_search', methods: ['GET'])]
+    // La classe FishingRepository permet d'effectuer les requêtes sql SELECT voulues via 4 methodes find()
+    public function search($id, FishingRepository $fishingRepository): Response
+    {
+        $fishingSearch = $fishingRepository->find($id);
+        return $this->render('fishing/search.html.twig', [
+            'fishingSearch' => $fishingSearch
+        ]);
+    }
+
+    #[Route('/search-results', name: 'search-result')]
+    public function searchFishing(Request $request, FishingRepository $fishingRepository)
+    {
+        $search = $request->query->get('search');
+        $fishingsSearches = $fishingRepository->searchFishing($search);
+
+        return $this->render('fishing/search.html.twig', [
+            'fishingsSearches' => $fishingsSearches,
+            'search' => $search
+        ]);
+    }
+
+
+
+
+
+
+
+
     #[Route('/new', name: 'app_fishing_new', methods: ['GET', 'POST'])]
     public function new(Request $request, FishingRepository $fishingRepository): Response
     {

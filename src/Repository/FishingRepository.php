@@ -39,6 +39,18 @@ class FishingRepository extends ServiceEntityRepository
         }
     }
 
+    // Method for search engine
+    public function searchFishing(string $search): array
+    {
+        $qb = $this->createQueryBuilder('fishing');
+        $query = $qb->select('fishing')
+            ->where('fishing.fishRace LIKE :search')
+            ->setParameter('search', '%'.$search.'%')
+            ->getQuery();
+
+        return $query->getResult();
+    }
+
 //    /**
 //     * @return Fishing[] Returns an array of Fishing objects
 //     */

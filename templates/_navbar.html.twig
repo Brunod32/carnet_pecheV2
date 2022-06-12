@@ -19,6 +19,12 @@
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto">
+                <li>
+                    <form action="{{ path('search-result') }}" class="mt-2">
+                        <input name="search" id="search" class="search" type="text" placeholder="Titre pêche">
+                        <button type="submit" id="go"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </form>
+                </li>
                 {% if not app.user %}
                     <li class="nav-item">
                         <a class="nav-link" href="{{ path('app_login') }}" title="Connexion"><i class="fa-solid fa-arrow-right-to-bracket fa-2x"></i></a>

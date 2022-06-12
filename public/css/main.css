@@ -30,3 +30,8 @@ h1 {
 a {
     text-decoration: none;
 }
+
+/* Search Bar */
+.search {
+    border-radius: 25px;
+}

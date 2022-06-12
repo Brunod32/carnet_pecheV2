@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Résultats de recherche
+{% endblock %}
+
+{% block body %}
+    {{ include('_navbar.html.twig') }}
+    <h1 class="m-5">Résultats de la recherche pour:  {{ search }}</h1>
+
+    {% for fishingsSearch in fishingsSearches %}
+        <section class="container">
+            <hr>
+            <h4>Poisson recherché: {{ fishingsSearch.fishRace }}</h4>
+                <a href="{{ path('app_fishing_show', {'id': fishingsSearch.id}) }}" class="ms-5">Détails de la pêche</a>
+            </p>
+        </section>
+    {% endfor %}
+
+{% endblock %}
+
+
+
