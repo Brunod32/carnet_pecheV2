@@ -14,8 +14,8 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ material.name }}</h5>
                     <p class="card-text">{{ material.description }}</p>
-                    <a href="{{ path('app_material_show', {'id': material.id}) }}" title="Voir"><i class="fa-solid fa-folder-open"></i></a>
                     {% if app.user %}
+                        <a href="{{ path('app_material_show', {'id': material.id}) }}" title="Voir"><i class="fa-solid fa-folder-open"></i></a>
                         <a href="{{ path('app_material_edit', {'id': material.id}) }}" title="Modifier"><i class="fa-solid fa-pen"></i></a>
                     {% endif %}
                 </div>
@@ -25,7 +25,7 @@
         {% endfor %}
     </div>
     {% if app.user %}
-        <a href="{{ path('app_material_new') }}" class="btn btn-outline-primary">Enregistrer un nouveau matériel</a>
+        <a href="{{ path('app_material_new') }}" class="btn btn-outline-primary">Ajouter un nouveau matériel</a>
     {% endif %}
 </section>
 {% endblock %}

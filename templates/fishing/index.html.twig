@@ -17,7 +17,9 @@
                 <th>Leurre</th>
                 <th>Météo</th>
                 <th>Appât</th>
+                {% if app.user %}
                 <th></th>
+                {% endif %}
             </tr>
         </thead>
         <tbody>
@@ -29,12 +31,11 @@
                 <td>{{ fishing.lure }}</td>
                 <td>{{ fishing.weather }}</td>
                 <td>{{ fishing.bait }}</td>
+                {% if app.user %}
                 <td>
                     <a href="{{ path('app_fishing_show', {'id': fishing.id}) }}" title="Voir"><i class="fa-solid fa-folder-open"></i></a>
-
-                    {% if app.user %}
-                        <a href="{{ path('app_fishing_edit', {'id': fishing.id}) }}" title="Modifier"><i class="fa-solid fa-pen"></i></a>
-                    {% endif %}
+                    <a href="{{ path('app_fishing_edit', {'id': fishing.id}) }}" title="Modifier"><i class="fa-solid fa-pen"></i></a>
+                {% endif %}
                 </td>
             </tr>
         {% else %}
@@ -45,7 +46,7 @@
         </tbody>
     </table>
     {% if app.user %}
-        <a href="{{ path('app_fishing_new') }}" class="btn btn-outline-primary">Enregistrer une nouvelle pêche</a>
+        <a href="{{ path('app_fishing_new') }}" class="btn btn-outline-primary">Ajouter une nouvelle pêche</a>
     {% endif %}
 </section>
 {% endblock %}

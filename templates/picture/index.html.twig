@@ -16,8 +16,8 @@
                     <h5 class="card-title">{{ picture.title }}</h5>
                     <h6 class="card-subtitle mb-2 text-muted">{{ picture.date|date("d/m/Y") }} - {{ picture.place }}</h6>
                     <p class="card-text">{{ picture.description }}</p>
-                    <a href="{{ path('app_picture_show', {'id': picture.id}) }}" title="Voir"><i class="fa-solid fa-folder-open"></i></a>
                     {% if app.user %}
+                        <a href="{{ path('app_picture_show', {'id': picture.id}) }}" title="Voir"><i class="fa-solid fa-folder-open"></i></a>
                         <a href="{{ path('app_picture_edit', {'id': picture.id}) }}" title="Modifier"><i class="fa-solid fa-pen"></i></a>
                     {% endif %}
                 </div>
@@ -27,7 +27,7 @@
         {% endfor %}
     </div>
     {% if app.user %}
-        <a href="{{ path('app_picture_new') }}" class="btn btn-outline-primary">Enregistrer une nouvelle photo</a>
+        <a href="{{ path('app_picture_new') }}" class="btn btn-outline-primary">Ajouter une nouvelle photo</a>
     {% endif %}
 </section>
 {% endblock %}
