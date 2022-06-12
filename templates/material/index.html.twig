@@ -4,39 +4,9 @@
 
 {% block body %}
 {{ include('_navbar.html.twig') }}
-    <h1 class="text-center m-5">Mon matériel</h1>
-{# 
-    <div class="container">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Picture</th>
-                    <th>Description</th>
-                    <th>actions</th>
-                </tr>
-            </thead>
-            <tbody>
-            {% for material in materials %}
-                <tr>
-                    <td>{{ material.name }}</td>
-                    <td>{{ material.picture }}</td>
-                    <td>{{ material.description }}</td>
-                    <td>
-                        <a href="{{ path('app_material_show', {'id': material.id}) }}" title="Voir"><i class="fa-solid fa-folder-open"></i></a>
-                        <a href="{{ path('app_material_edit', {'id': material.id}) }}" title="Modifier"><i class="fa-solid fa-pen"></i></a>
-                    </td>
-                </tr>
-            {% else %}
-                <tr>
-                    <td colspan="5">Aucun matériel enregistré</td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-        <a href="{{ path('app_material_new') }}" class="btn btn-outline-primary">Enregistrer un nouveau matériel</a>
-    </div> #}
-<section class="container">
+<h1 class="text-center m-5">Mon matériel</h1>
+
+<section class="container mb-5">
     <div class="row w-100 d-flex justify-content-center gap-5 col-md-12 col-lg-2 m-5">
         {% for material in materials %}
             <div class="card" style="width: 18rem;">
@@ -58,5 +28,4 @@
         <a href="{{ path('app_material_new') }}" class="btn btn-outline-primary">Enregistrer un nouveau matériel</a>
     {% endif %}
 </section>
-{{ include('_footer.html.twig') }}
 {% endblock %}

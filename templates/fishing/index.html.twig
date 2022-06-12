@@ -4,48 +4,48 @@
 
 {% block body %}
 {{ include('_navbar.html.twig') }}
-    <h1 class="text-center m-5">Listes des pêches</h1>
 
-    <div class="container">
-        <table class="table table-striped table-bordered table-hover table-sm">
-            <thead>
-                <tr>
-                    <th>Variété de poisson</th>
-                    <th>Date</th>
-                    <th>Lieu</th>
-                    <th>Leurre</th>
-                    <th>Météo</th>
-                    <th>Appât</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-            {% for fishing in fishings %}
-                <tr>
-                    <td>{{ fishing.fishRace }}</td>
-                    <td>{{ fishing.date ? fishing.date|date('d-m-Y') : '' }}</td>
-                    <td>{{ fishing.place }}</td>
-                    <td>{{ fishing.lure }}</td>
-                    <td>{{ fishing.weather }}</td>
-                    <td>{{ fishing.bait }}</td>
-                    <td>
-                        <a href="{{ path('app_fishing_show', {'id': fishing.id}) }}" title="Voir"><i class="fa-solid fa-folder-open"></i></a>
+<h1 class="text-center m-5">Listes des pêches</h1>
 
-                        {% if app.user %}
-                            <a href="{{ path('app_fishing_edit', {'id': fishing.id}) }}" title="Modifier"><i class="fa-solid fa-pen"></i></a>
-                        {% endif %}
-                    </td>
-                </tr>
-            {% else %}
-                <tr>
-                    <td colspan="8">Aucune pêche enregistrée</td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-        {% if app.user %}
-            <a href="{{ path('app_fishing_new') }}" class="btn btn-outline-primary">Enregistrer une nouvelle pêche</a>
-        {% endif %}
-    </div>
-{{ include('_footer.html.twig') }}
+<section class="container mb-5">
+    <table class="table table-striped table-bordered table-hover table-sm">
+        <thead>
+            <tr>
+                <th>Variété de poisson</th>
+                <th>Date</th>
+                <th>Lieu</th>
+                <th>Leurre</th>
+                <th>Météo</th>
+                <th>Appât</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for fishing in fishings %}
+            <tr>
+                <td>{{ fishing.fishRace }}</td>
+                <td>{{ fishing.date ? fishing.date|date('d-m-Y') : '' }}</td>
+                <td>{{ fishing.place }}</td>
+                <td>{{ fishing.lure }}</td>
+                <td>{{ fishing.weather }}</td>
+                <td>{{ fishing.bait }}</td>
+                <td>
+                    <a href="{{ path('app_fishing_show', {'id': fishing.id}) }}" title="Voir"><i class="fa-solid fa-folder-open"></i></a>
+
+                    {% if app.user %}
+                        <a href="{{ path('app_fishing_edit', {'id': fishing.id}) }}" title="Modifier"><i class="fa-solid fa-pen"></i></a>
+                    {% endif %}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">Aucune pêche enregistrée</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% if app.user %}
+        <a href="{{ path('app_fishing_new') }}" class="btn btn-outline-primary">Enregistrer une nouvelle pêche</a>
+    {% endif %}
+</section>
 {% endblock %}

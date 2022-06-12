@@ -88,9 +88,6 @@ class PictureController extends AbstractController
             // this condition is needed because the 'photo' field is not required
             // so the file must be processed only when a file is uploaded
             if ($photo) {
-                // $originalFilename = pathinfo($photo->getClientOriginalName(), PATHINFO_FILENAME);
-                // // this is needed to safely include the file name as part of the URL
-                // $safeFilename = $slugger->slug($originalFilename);
                 $newFilename = $picture->getPhoto();
                 
                 // Move the file to the directory where photos are stored
