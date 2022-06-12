@@ -42,7 +42,7 @@
         <a href="{{ path('app_picture_new') }}" class="btn btn-outline-primary">Enregistrer une nouvelle photo</a>
     </div> #}
 <section class="container">
-    <section class="container d-flex justify-content-center mt-5">
+    <div class="row w-100 d-flex justify-content-center gap-5 col-md-12 col-lg-2 m-5">
         {% for picture in pictures %}
             <div class="card" style="width: 18rem;">
                 <img class="card-img-top" src="{{ asset('uploads/' ~ picture.photo) }}" alt="Photo de pêche">
@@ -59,7 +59,7 @@
         {% else %}
             <div colspan="5">Aucune photo enregistrée</div>
         {% endfor %}
-    </section>
+    </div>
     {% if app.user %}
         <a href="{{ path('app_picture_new') }}" class="btn btn-outline-primary">Enregistrer une nouvelle photo</a>
     {% endif %}

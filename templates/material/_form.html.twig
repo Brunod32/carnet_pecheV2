@@ -1,7 +1,7 @@
 <div class="container">
     {{ form_start(form) }}
         {{ form_row(form.name, { 'label': 'Nom'}) }}
-        {{ form_row(form.picture, { 'label': 'Photo'}) }}
+        {{ form_row(form.photo, { 'label': 'Photo'}) }}
         {{ form_row(form.description, { 'label': 'Description'}) }}
         <button class="btn btn-outline-primary">{{ button_label|default('Enregistrer') }}</button>
     {{ form_end(form) }}

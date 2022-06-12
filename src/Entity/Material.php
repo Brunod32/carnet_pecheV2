@@ -16,8 +16,8 @@ class Material
     #[ORM\Column(type: 'string', length: 50)]
     private $name;
 
-    #[ORM\Column(type: 'blob')]
-    private $picture;
+    #[ORM\Column(type: 'string', length: 255)]
+    private $photo;
 
     #[ORM\Column(type: 'text', nullable: true)]
     private $description;
@@ -39,14 +39,14 @@ class Material
         return $this;
     }
 
-    public function getPicture()
+    public function getPhoto()
     {
-        return $this->picture;
+        return $this->photo;
     }
 
-    public function setPicture($picture): self
+    public function setPhoto($photo): self
     {
-        $this->picture = $picture;
+        $this->photo = $photo;
 
         return $this;
     }

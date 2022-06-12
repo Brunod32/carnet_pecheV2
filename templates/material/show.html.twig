@@ -3,7 +3,7 @@
 {% block title %}Détails du matériel{% endblock %}
 
 {% block body %}
-    <h1 class="text-center m-5">Détails du matériel</h1>
+    <h1 class="text-center m-5">Détails du matériel {{ material.name }}</h1>
 
     <div class="container">
         <table class="table">
@@ -13,12 +13,14 @@
                     <td>{{ material.id }}</td>
                 </tr> #}
                 <tr>
-                    <th>Name</th>
+                    <th>Nom du matériel</th>
                     <td>{{ material.name }}</td>
                 </tr>
                 <tr>
-                    <th>Picture</th>
-                    <td>{{ material.picture }}</td>
+                    <th>Photo</th>
+                    <td><img
+                        src="{{ asset('uploads/' ~ material.photo) }}" />
+                    </td>
                 </tr>
                 <tr>
                     <th>Description</th>
