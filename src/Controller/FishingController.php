@@ -14,15 +14,19 @@ use Symfony\Component\Routing\Annotation\Route;
 class FishingController extends AbstractController
 {
     #[Route('/', name: 'app_fishing_index', methods: ['GET'])]
-    public function index(FishingRepository $fishingRepository): Response
+    #[Route('/fishing/{page}', name: 'fishing_paginer', methods: ['GET'])]
+    public function index(
+        FishingRepository $fishingRepository,
+        int $page = 1
+    ): Response
     {
+        $nbfishing = $fishingRepository->findfishingPaginerCount();
         return $this->render('fishing/index.html.twig', [
-            'fishings' => $fishingRepository->findAll(),
+            'fishings' => $fishingRepository->findFishingPaginer($page),
+            'currentPage' => $page,
+            'maxFishing' => $nbfishing > ($page * 10)
         ]);
     }
-
-
-
 
     #[Route('/fishing-search/{id}', name: 'fishing_search', methods: ['GET'])]
     // La classe FishingRepository permet d'effectuer les requêtes sql SELECT voulues via 4 methodes find()
@@ -45,13 +49,6 @@ class FishingController extends AbstractController
             'search' => $search
         ]);
     }
-
-
-
-
-
-
-
 
     #[Route('/new', name: 'app_fishing_new', methods: ['GET', 'POST'])]
     public function new(Request $request, FishingRepository $fishingRepository): Response

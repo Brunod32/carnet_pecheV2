@@ -39,6 +39,18 @@ class FishingRepository extends ServiceEntityRepository
         }
     }
 
+    // Paging
+    public function findFishingPaginer(int $page = 1, int $limit = 10): array
+    {
+        return $this->findBy([], [], $limit, ($page - 1) * 10);
+    }
+
+    public function findFishingPaginerCount(): int
+    {
+        $fishing = $this->findAll();
+        return $this->count([]);
+    }
+
     // Method for search engine
     public function searchFishing(string $search): array
     {

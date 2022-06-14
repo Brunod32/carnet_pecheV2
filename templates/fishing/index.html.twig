@@ -8,6 +8,19 @@
 <h1 class="text-center m-5">Listes des pêches</h1>
 
 <section class="container mb-5">
+    {% if maxFishing %}
+    <div class="d-flex justify-content-end">
+        <a href="{{ path('fishing_paginer', {'page': currentPage + 1}) }}" class="btn mt-3">
+            <i class="fa-solid fa-chevron-right" title="Page suivante"></i>
+        </a>
+    {% endif %}
+    {% if currentPage > 1 %}
+        <a href="{{ path('fishing_paginer', {'page': currentPage - 1}) }}" class="btn mt-3">
+            <i class="fa-solid fa-chevron-left" title="Page précédente"></i>
+        </a>
+    {% endif %}
+    </div>
+
     <table class="table table-striped table-bordered table-hover table-sm">
         <thead>
             <tr>
