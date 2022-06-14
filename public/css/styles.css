@@ -48,3 +48,8 @@ a {
 .card:hover {
     box-shadow: 10px 10px 15px rgb(150, 130, 130);
 }
+
+.photoShow {
+    width: 300px;
+    height: auto;
+}
