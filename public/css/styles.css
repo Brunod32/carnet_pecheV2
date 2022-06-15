@@ -28,6 +28,7 @@
 .homepage {
     display: flex;
     justify-content: center;
+    margin-bottom: 150px;
 }
 
 .homepage__img {
@@ -38,7 +39,6 @@
 
 h1 {
     color: rgb(112, 112, 251);
-    /* color: beige; */
 }
 
 a {
@@ -52,4 +52,17 @@ a {
 .photoShow {
     width: 300px;
     height: auto;
+}
+
+hr {
+    width: 50%;
+    margin:auto;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+@media(max-width:992px) {
+    body {
+        font-size: 2rem;
+    }
 }

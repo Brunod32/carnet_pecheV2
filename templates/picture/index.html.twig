@@ -6,11 +6,11 @@
 {{ include('_navbar.html.twig') }}
 
 <h1 class="text-center m-5">Mes photos</h1>
-
+<hr>
 <section class="container mb-5">
-    <div class="row w-100 d-flex justify-content-center gap-5 col-md-12 col-lg-2 m-5">
+    <div class="row w-100 d-flex justify-content-center gap-5 col-md-12 col-lg-2">
         {% for picture in pictures %}
-            <div class="card" style="width: 18rem;">
+            <div class="card card-picture" style="width: 18rem;">
                 <img class="card-img-top" src="{{ asset('uploads/' ~ picture.photo) }}" alt="Photo de pêche">
                 <div class="card-body">
                     <h5 class="card-title">{{ picture.title }}</h5>

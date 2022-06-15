@@ -5,9 +5,9 @@
 {% block body %}
 {{ include('_navbar.html.twig') }}
 <h1 class="text-center m-5">Mon matériel</h1>
-
+<hr>
 <section class="container mb-5">
-    <div class="row w-100 d-flex justify-content-center gap-5 col-md-12 col-lg-2 m-5">
+    <div class="row w-100 d-flex justify-content-center gap-5 col-md-12 col-lg-2">
         {% for material in materials %}
             <div class="card" style="width: 18rem;">
                 <img class="card-img-top" src="{{ asset('uploads/' ~ material.photo) }}" alt="Card image cap">
