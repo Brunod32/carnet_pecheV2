@@ -27,9 +27,9 @@
                 <th>Variété de poisson</th>
                 <th>Date</th>
                 <th>Lieu</th>
-                <th>Leurre</th>
-                <th>Météo</th>
-                <th>Appât</th>
+                <th class="unshow">Leurre</th>
+                <th class="unshow">Météo</th>
+                <th class="unshow">Appât</th>
                 {% if app.user %}
                 <th></th>
                 {% endif %}
@@ -41,9 +41,9 @@
                 <td>{{ fishing.fishRace }}</td>
                 <td>{{ fishing.date ? fishing.date|date('d-m-Y') : '' }}</td>
                 <td>{{ fishing.place }}</td>
-                <td>{{ fishing.lure }}</td>
-                <td>{{ fishing.weather }}</td>
-                <td>{{ fishing.bait }}</td>
+                <td class="unshow">{{ fishing.lure }}</td>
+                <td class="unshow">{{ fishing.weather }}</td>
+                <td class="unshow">{{ fishing.bait }}</td>
                 {% if app.user %}
                 <td>
                     <a href="{{ path('app_fishing_show', {'id': fishing.id}) }}" title="Voir"><i class="fa-solid fa-folder-open"></i></a>

@@ -28,11 +28,10 @@
 .homepage {
     display: flex;
     justify-content: center;
-    margin-bottom: 150px;
 }
 
 .homepage__img {
-    width: 50%;
+    width: 60%;
     border-radius: 5%;
     box-shadow: 5px 5px 30px 5px #000000;
 }
@@ -64,5 +63,9 @@ hr {
 @media(max-width:992px) {
     body {
         font-size: 2rem;
+    }
+
+    .unshow {
+        display: none;
     }
 }

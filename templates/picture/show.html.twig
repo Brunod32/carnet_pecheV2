@@ -3,10 +3,10 @@
 {% block title %}Détail photo{% endblock %}
 
 {% block body %}
-    <h1 class="text-center m-5">Détails de photo {{ picture.title }}</h1>
+    <h1 class="text-center m-5">Détails de la photo {{ picture.title }}</h1>
 
     <div class="container">
-        <table class="table">
+        <table class="table table-striped">
             <tbody>
                 <tr>
                     <th>Titre</th>
@@ -27,7 +27,7 @@
                 <tr>
                     <th>Photo</th>
                     <td><img
-                        src="{{ asset('uploads/' ~ picture.photo) }}" class="photoShow" />
+                        src="{{ asset('uploads/' ~ picture.photo) }}" onclick="window.open(this.src , 'exemple', 'height=800, width=800, top=150, left=400, toolbar=no, menubar=no, location=no, resizable=no, scrollbars=no, status=no')" class="photoShow" />
                     </td>
                 </tr>
             </tbody>

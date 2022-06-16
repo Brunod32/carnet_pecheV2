@@ -9,8 +9,8 @@
 <section class="container mb-5">
     <div class="row w-100 d-flex justify-content-center gap-5 col-md-12 col-lg-2">
         {% for material in materials %}
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="{{ asset('uploads/' ~ material.photo) }}" alt="Card image cap">
+            <div class="card" style="width: 15rem;">
+                <img class="card-img-top" src="{{ asset('uploads/' ~ material.photo) }}" alt="Card image cap" onclick="window.open(this.src , 'exemple', 'height=800, width=800, top=150, left=400, toolbar=no, menubar=no, location=no, resizable=no, scrollbars=no, status=no')">
                 <div class="card-body">
                     <h5 class="card-title">{{ material.name }}</h5>
                     <p class="card-text">{{ material.description }}</p>
@@ -25,7 +25,7 @@
         {% endfor %}
     </div>
     {% if app.user %}
-        <a href="{{ path('app_material_new') }}" class="btn btn-outline-primary">Ajouter un nouveau matériel</a>
+        <a href="{{ path('app_material_new') }}" class="btn btn-outline-primary mt-3">Ajouter un nouveau matériel</a>
     {% endif %}
 </section>
 {% endblock %}
