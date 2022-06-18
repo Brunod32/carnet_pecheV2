@@ -10,7 +10,7 @@
     <div class="row w-100 d-flex justify-content-center gap-5 col-md-12 col-lg-2">
         {% for material in materials %}
             <div class="card" style="width: 15rem;">
-                <img class="card-img-top" src="{{ asset('uploads/' ~ material.photo) }}" alt="Card image cap" onclick="window.open(this.src , 'exemple', 'height=800, width=800, top=150, left=400, toolbar=no, menubar=no, location=no, resizable=no, scrollbars=no, status=no')">
+                <img class="card-img-top photoToGrow" src="{{ asset('uploads/' ~ material.photo) }}" alt="Card image cap" onclick=openPictureInPopup(this.src)>
                 <div class="card-body">
                     <h5 class="card-title">{{ material.name }}</h5>
                     <p class="card-text">{{ material.description }}</p>

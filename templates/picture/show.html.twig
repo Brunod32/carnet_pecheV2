@@ -27,7 +27,7 @@
                 <tr>
                     <th>Photo</th>
                     <td><img
-                        src="{{ asset('uploads/' ~ picture.photo) }}" onclick="window.open(this.src , 'exemple', 'height=800, width=800, top=150, left=400, toolbar=no, menubar=no, location=no, resizable=no, scrollbars=no, status=no')" class="photoShow" />
+                        src="{{ asset('uploads/' ~ picture.photo) }}" onclick=openPictureInPopup(this.src) class="photoShow" />
                     </td>
                 </tr>
             </tbody>

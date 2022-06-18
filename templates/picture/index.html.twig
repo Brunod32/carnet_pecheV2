@@ -11,7 +11,7 @@
     <div class="row w-100 d-flex justify-content-center gap-5 col-md-12 col-lg-2">
         {% for picture in pictures %}
             <div class="card card-picture" style="width: 15rem;">
-                <img class="card-img-top" src="{{ asset('uploads/' ~ picture.photo) }}" onclick="window.open(this.src , 'exemple', 'height=800, width=800, top=150, left=400, toolbar=no, menubar=no, location=no, resizable=no, scrollbars=no, status=no')" alt="Photo de pêche">
+                <img class="card-img-top" src="{{ asset('uploads/' ~ picture.photo) }}" onclick=openPictureInPopup(this.src) alt="Photo de pêche">
                 <div class="card-body">
                     <h5 class="card-title">{{ picture.title }}</h5>
                     <h6 class="card-subtitle mb-2 text-muted">{{ picture.date|date("d/m/Y") }} - {{ picture.place }}</h6>
