@@ -10,7 +10,7 @@
 <section class="container mb-5">
     <div class="row w-100 d-flex justify-content-center gap-5 col-md-12 col-lg-2">
         {% for picture in pictures %}
-            <div class="card card-picture" style="width: 15rem;">
+            {# <div class="card card-picture" style="width: 15rem;">
                 <img class="card-img-top" src="{{ asset('uploads/' ~ picture.photo) }}" onclick=openPictureInPopup(this.src) alt="Photo de pêche">
                 <div class="card-body">
                     <h5 class="card-title">{{ picture.title }}</h5>
@@ -23,7 +23,19 @@
                     </div>
                     {% endif %}
                 </div>
-            </div>
+            </div> #}
+            <h2 class="text-center">{{ picture.title }}</h2>
+            <h6 class="text-center">{{ picture.date|date("d/m/Y") }} - {{ picture.place }}</h6>
+
+            <img class="picture" src="{{ asset('uploads/' ~ picture.photo) }}" onclick=openPictureInPopup(this.src) alt="Photo de pêche">
+            <p class="text-center">{{ picture.description }}</p>
+            {% if app.user %}
+                <div class="d-flex justify-content-around">
+                    <a href="{{ path('app_picture_show', {'id': picture.id}) }}" title="Voir"><i class="fa-solid fa-folder-open"></i></a>
+                    <a href="{{ path('app_picture_edit', {'id': picture.id}) }}" title="Modifier"><i class="fa-solid fa-pen"></i></a>
+                </div>
+            {% endif %}
+            <hr>
         {% else %}
             <div colspan="5">Aucune photo enregistrée</div>
         {% endfor %}

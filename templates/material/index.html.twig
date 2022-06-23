@@ -9,8 +9,8 @@
 <section class="container mb-5">
     <div class="row w-100 d-flex justify-content-center gap-5 col-md-12 col-lg-2">
         {% for material in materials %}
-            <div class="card" style="width: 15rem;">
-                <img class="card-img-top photoToGrow" src="{{ asset('uploads/' ~ material.photo) }}" alt="Card image cap" onclick=openPictureInPopup(this.src)>
+            {# <div class="card" style="width: 15rem;">
+                <img class="card-img-top photoToGrow" src="{{ asset('uploads/' ~ material.photo) }}" alt="Card image cap" onclick=openPictureInPopup(this.src) alt="Photo de matériel de pêche">
                 <div class="card-body">
                     <h5 class="card-title">{{ material.name }}</h5>
                     <p class="card-text">{{ material.description }}</p>
@@ -19,7 +19,18 @@
                         <a href="{{ path('app_material_edit', {'id': material.id}) }}" title="Modifier"><i class="fa-solid fa-pen"></i></a>
                     {% endif %}
                 </div>
+            </div> #}
+            
+            <h2 class="text-center">{{ material.name }}</h2>
+            <img class="pictureMateriel" src="{{ asset('uploads/' ~ material.photo) }}" onclick=openPictureInPopup(this.src) alt="Photo de matériel de pêche">
+            <p class="text-center">{{ material.description }}</p>
+            {% if app.user %}
+            <div class="d-flex justify-content-around">
+                <a href="{{ path('app_material_show', {'id': material.id}) }}" title="Voir"><i class="fa-solid fa-folder-open"></i></a>
+                <a href="{{ path('app_material_edit', {'id': material.id}) }}" title="Modifier"><i class="fa-solid fa-pen"></i></a>
+            {% endif %}
             </div>
+            <hr>
         {% else %}
             <div colspan="5">Aucun matériel enregistré</div>
         {% endfor %}

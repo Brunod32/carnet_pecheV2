@@ -52,7 +52,8 @@
     box-shadow: 5px 5px 30px 5px #000000;
 }
 
-h1 {
+h1,
+h2 {
     color: rgb(112, 112, 251);
 }
 
@@ -88,6 +89,7 @@ hr {
 
     footer {
         font-size: 1em;
+        border-top: 1px solid rgb(176, 196, 222);
     }
 }
 
@@ -108,5 +110,16 @@ html {
     left:0;
     right:0;
     padding-top: 15px;
-    border-top: 1px solid rgb(176, 196, 222);
+}
+
+/* PhotosPage */
+.picture, .pictureMateriel {
+    width: 30%;
+    height: auto;
+    border-radius: 25px;
+}
+
+.picture:hover {
+    width: 50%;
+    height: auto;
 }
