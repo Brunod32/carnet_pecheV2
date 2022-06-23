@@ -117,9 +117,30 @@ html {
     width: 30%;
     height: auto;
     border-radius: 25px;
+
+}
+
+@keyframes growupPicture {
+    0% {
+        width: 30%;
+        height: auto;
+    }
+    
+    100% {
+        width: 50%;
+        height: auto;
+    }
 }
 
 .picture:hover {
-    width: 50%;
-    height: auto;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-name: growupPicture;
 }
+
+/* Btn back tot top*/
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+  }
