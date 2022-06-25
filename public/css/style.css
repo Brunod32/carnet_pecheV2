@@ -112,30 +112,18 @@ html {
     padding-top: 15px;
 }
 
-/* PhotosPage */
+/* Photos animation */
 .picture, .pictureMateriel {
     width: 30%;
     height: auto;
     border-radius: 25px;
-
-}
-
-@keyframes growupPicture {
-    0% {
-        width: 30%;
-        height: auto;
-    }
-    
-    100% {
-        width: 50%;
-        height: auto;
-    }
+    transition: all 2s ease;
 }
 
 .picture:hover {
-    animation-duration: 2s;
-    animation-fill-mode: forwards;
-    animation-name: growupPicture;
+    width: 50%;
+    height: auto;
+    transition: all 2s ease;
 }
 
 /* Btn back tot top*/
