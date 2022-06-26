@@ -7,16 +7,16 @@
 
 <h1 class="text-center m-5">Listes des pêches</h1>
 
-<section class="container mb-5">
+<section class="container">
     {% if maxFishing %}
     <div class="d-flex justify-content-end">
         <a href="{{ path('fishing_paginer', {'page': currentPage + 1}) }}" class="btn mt-3">
-            <i class="fa-solid fa-chevron-right" title="Page suivante"></i>
+            <i class="fa-solid fa-chevron-right fa-3x" title="Page suivante"></i>
         </a>
     {% endif %}
     {% if currentPage > 1 %}
         <a href="{{ path('fishing_paginer', {'page': currentPage - 1}) }}" class="btn mt-3">
-            <i class="fa-solid fa-chevron-left" title="Page précédente"></i>
+            <i class="fa-solid fa-chevron-left fa-3x" title="Page précédente"></i>
         </a>
     {% endif %}
     </div>
@@ -46,8 +46,8 @@
                 <td class="unshow">{{ fishing.bait }}</td>
                 {% if app.user %}
                 <td>
-                    <a href="{{ path('app_fishing_show', {'id': fishing.id}) }}" title="Voir"><i class="fa-solid fa-folder-open"></i></a>
-                    <a href="{{ path('app_fishing_edit', {'id': fishing.id}) }}" title="Modifier"><i class="fa-solid fa-pen"></i></a>
+                    <a href="{{ path('app_fishing_show', {'id': fishing.id}) }}" title="Voir"><i class="fa-solid fa-folder-open fa-2x"></i></a>
+                    <a href="{{ path('app_fishing_edit', {'id': fishing.id}) }}" title="Modifier"><i class="fa-solid fa-pen fa-2x"></i></a>
                 {% endif %}
                 </td>
             </tr>
