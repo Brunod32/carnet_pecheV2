@@ -78,21 +78,6 @@ hr {
     margin-bottom: 40px;
 }
 
-@media(max-width:992px) {
-    body {
-        font-size: 2rem;
-    }
-
-    .unshow {
-        display: none;
-    }
-
-    footer {
-        font-size: 1em;
-        border-top: 1px solid rgb(176, 196, 222);
-    }
-}
-
 /* footer */
 html {
     min-height: 100%;
@@ -131,4 +116,23 @@ html {
     position: fixed;
     bottom: 20px;
     right: 20px;
-  }
+}
+
+@media(max-width:992px) {
+    body {
+        font-size: 2rem;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .unshow {
+        display: none;
+    }
+
+    footer {
+        font-size: 1em;
+        border-top: 1px solid rgb(176, 196, 222);
+    }
+}
