@@ -157,4 +157,10 @@ html {
         width: 50px;
         height: auto;
     }
+
+    .homepage__img {
+        width: 100%;
+        border-radius: 5%;
+        box-shadow: 5px 5px 30px 5px #000000;
+    }
 }
