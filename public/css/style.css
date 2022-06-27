@@ -112,13 +112,18 @@ html {
     transition: all 2s ease;
 }
 
-/* Btn back tot top*/
+/* Btn back top top*/
 .back-to-top {
     position: fixed;
     width: 20;
     height: 20;
     bottom: 20px;
     right: 20px;
+}
+
+.fa-chevron-left,
+.fa-chevron-right {
+    color: rgb(112, 112, 251);
 }
 
 @media(max-width:992px) {
