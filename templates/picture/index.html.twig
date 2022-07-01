@@ -1,3 +1,9 @@
+{# 
+Due to a technical problem of heroku,
+which only stores on an ephemeral disk,
+the photos are exceptionally hard coded
+ #}
+
 {% extends 'base.html.twig' %}
 
 {% block title %}Liste des photos{% endblock %}
@@ -8,21 +14,7 @@
 <hr>
 <section class="container mb-5">
     <div class="row w-100 d-flex justify-content-center gap-5 col-md-12 col-lg-2">
-        {% for picture in pictures %}
-            {# <div class="card card-picture" style="width: 15rem;">
-                <img class="card-img-top" src="{{ asset('uploads/' ~ picture.photo) }}" onclick=openPictureInPopup(this.src) alt="Photo de pêche">
-                <div class="card-body">
-                    <h5 class="card-title">{{ picture.title }}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">{{ picture.date|date("d/m/Y") }} - {{ picture.place }}</h6>
-                    <p class="card-text">{{ picture.description }}</p>
-                    {% if app.user %}
-                    <div class="d-flex justify-content-end">
-                        <a href="{{ path('app_picture_show', {'id': picture.id}) }}" title="Voir"><i class="fa-solid fa-folder-open"></i></a>
-                        <a href="{{ path('app_picture_edit', {'id': picture.id}) }}" title="Modifier"><i class="fa-solid fa-pen"></i></a>
-                    </div>
-                    {% endif %}
-                </div>
-            </div> #}
+        {# {% for picture in pictures %}
             <h2 class="text-center">{{ picture.title }}</h2>
             <h6 class="text-center">{{ picture.date|date("d/m/Y") }} - {{ picture.place }}</h6>
 
@@ -33,11 +25,55 @@
                     <a href="{{ path('app_picture_show', {'id': picture.id}) }}" title="Voir"><i class="fa-solid fa-folder-open"></i></a>
                     <a href="{{ path('app_picture_edit', {'id': picture.id}) }}" title="Modifier"><i class="fa-solid fa-pen"></i></a>
                 </div>
-            {% endif %}
             <hr>
         {% else %}
             <div colspan="5">Aucune photo enregistrée</div>
         {% endfor %}
+        #}
+
+        <h2 class="text-center">Ma 1ère dorade</h2>
+            <h6 class="text-center">02/08/2019 - Saint-Pierre-Quiberon</h6>
+            <img class="picture" src="{{ asset('img/1eredorade.jpg') }}" onclick=openPictureInPopup(this.src) alt="Ma 1ère dorade">
+            <p class="text-center"></p>
+        <hr>
+
+        <h2 class="text-center">Une carpe commune</h2>
+            <h6 class="text-center">20/108/2021 - Mordelles</h6>
+            <img class="picture" src="{{ asset('img/carpe-miroir.jpg') }}" onclick=openPictureInPopup(this.src) alt="carpe commune">
+            <p class="text-center">Une carpe de 3 kg</p>
+        <hr>
+
+        <h2 class="text-center">Ma plus grosse perche</h2>
+            <h6 class="text-center">22/06/2022 - La cabane Rouge</h6>
+            <img class="picture" src="{{ asset('img/perche.jpg') }}" onclick=openPictureInPopup(this.src) alt="Une perche">
+            <p class="text-center"></p>
+            <hr>
+
+        <h2 class="text-center">Mon 1er Brochet, 65 cm, 1 kg</h2>
+            <h6 class="text-center">22/06/2022 - La cabane Rouge</h6>
+            <img class="picture" src="{{ asset('img/1erbrochet.jpg') }}" onclick=openPictureInPopup(this.src) alt="Un brochet">
+            <p class="text-center">1er combat de cinq minutes remporté contre mon 1er brochet de 65 cm et 1 kg</p>
+            <hr>
+
+        <h2 class="text-center">Ma 1ère truite</h2>
+            <h6 class="text-center">30/04/2022 - Bazouges-la Pérouze</h6>
+            <img class="picture" src="{{ asset('img/truiteConcours.jpg') }}" onclick=openPictureInPopup(this.src) alt="Ma 1ère truite">
+            <p class="text-center">Ma 1ère truite pêchée lors de mon 1er concours</p>
+            <hr>
+
+        <h2 class="text-center">Une brème</h2>
+            <h6 class="text-center">13/04/2022 - Bourgbarré</h6>
+            <img class="picture" src="{{ asset('img/bremeBourgbarre.jpg') }}" onclick=openPictureInPopup(this.src) alt="Une brèmee">
+            <p class="text-center">Une brème pêchée avec mon grand-père et ma soeur dans l'étang de Bourgbarré</p>
+            <hr>
+
+            
+        <h2 class="text-center">Une gobie</h2>
+            <h6 class="text-center">26/06/2022 - Saint Malo</h6>
+            <img class="picture" src="{{ asset('img/gobie2.jpg') }}" onclick=openPictureInPopup(this.src) alt="un gobie">
+            <p class="text-center">Une gobie attrapée avec... du jambon</p>
+            <hr>
+            
     </div>
     {% if app.user %}
         <a href="{{ path('app_picture_new') }}" class="btn btn-outline-primary mt-3 mb-5">Ajouter une nouvelle photo</a>
