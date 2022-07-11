@@ -21,6 +21,10 @@
     font-weight: bold;
 }
 
+.icon-navbar {
+    width: 75px;
+}
+
 /* Search Bar */
 .search {
     border-radius: 25px;
@@ -133,7 +137,7 @@ html {
     }
 
     .icon-navbar {
-        width: 75px;
+        width: 100px;
     }
 
     h1 {
