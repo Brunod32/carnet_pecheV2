@@ -172,4 +172,16 @@ html {
         border-radius: 5%;
         box-shadow: 5px 5px 30px 5px #000000;
     }
+
+    .picture, .pictureMateriel {
+        width: 75%;
+        height: auto;
+        transition: all 2s ease;
+    }
+
+    .picture:hover {
+        width: 100%;
+        height: auto;
+        transition: all 2s ease;
+    }
 }
