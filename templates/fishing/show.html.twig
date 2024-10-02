@@ -3,6 +3,7 @@
 {% block title %}Détails pêche{% endblock %}
 
 {% block body %}
+{{ include('_navbar.html.twig') }}
     <h1 class="text-center m-5">Détails de la pêche {{ fishing.date|date('d M Y') }}</h1>
 
     <div class="container">

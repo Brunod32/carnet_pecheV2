@@ -82,7 +82,7 @@ hr {
     width: 50%;
     margin: auto;
     margin-top: 20px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 
 /* footer */
@@ -132,6 +132,86 @@ html {
 .fa-chevron-left,
 .fa-chevron-right {
     color: rgb(112, 112, 251);
+}
+
+/* Dak/White theme */
+.containerBtnTheme {
+    margin: auto;
+}
+
+#btnWhite {
+    background-color: lightgray;
+    border-radius: 15px;
+}
+
+#btnDark {
+    background-color: rgb(73, 66, 66);
+    color: lightgray;
+    border-radius: 15px;
+}
+
+.dark {
+    animation: whiteToDark forwards;
+
+    /* Modifier la couleur de fond des lignes alternées (striped) dans le mode sombre */
+    .table-striped tbody {
+        tr:nth-of-type(odd) {
+            background-color: rgba(255, 255, 255, 0.1); /* Lignes impaires */
+            color: white !important;
+        }
+        tr:nth-of-type(even) {
+            background-color: rgba(255, 255, 255, 0.2); /* Lignes paires */
+            color: white !important;
+        }
+    }
+
+    tbody {
+        color: white !important;
+    }
+
+    .go {
+        color: rgb(112, 112, 251);
+        border-radius: 50%;
+        background-color: black;
+        margin-left: 10px;
+        font-size: 20px;
+    }
+
+    .card-body {
+        background-color: lightgrey;
+    }
+
+    .fa-solid.fa-bars {
+        color:rgb(112, 112, 251);
+    }
+}
+
+.white {
+    animation: darkToWhite forwards;
+}
+
+@keyframes whiteToDark {
+    0% {
+        background-color: white;
+        color: dark;
+    }
+
+    100% {
+        background-color: rgb(27, 27, 27);
+        color: rgb(255, 255, 255);
+    }
+}
+
+@keyframes darkToWhite {
+    0% {
+        background-color: rgb(27, 27, 27);
+        color: rgb(128, 119, 119);
+    }
+
+    100% {
+        background-color: white;
+        color: dark;
+    }
 }
 
 @media(max-width:992px) {
@@ -187,5 +267,11 @@ html {
         width: 100%;
         height: auto;
         transition: all 2s ease;
+    }
+
+    .containerBtnTheme {
+        display: flex;
+        justify-content: flex-start;
+        width: 100%;
     }
 }
